@@ -4,7 +4,7 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
 import java.util.Map;
 
-import java.lang.System;
+import java.lang.*;
 
 /**
  *
