@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         ClientConfig config = new XmlClientConfigBuilder(System.getProperty("hazelcast.xmlconfig")).build();
-        HazelcastInstance client = HazelcastClient.newHazelcastClient(config)
+        HazelcastInstance client = HazelcastClient.newHazelcastClient(config);
         //HazelcastInstance instance = HazelcastClient.newHazelcastClient();
         Map<Long, Long> cacheMap = instance.getMap("fibmap");
         
