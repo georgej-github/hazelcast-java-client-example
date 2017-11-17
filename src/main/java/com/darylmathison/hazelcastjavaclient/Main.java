@@ -4,6 +4,7 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
 
 import com.hazelcast.client.config.XmlClientConfigBuilder;
+import com.hazelcast.client.config.ClientConfig;
 
 import java.util.Map;
 
