@@ -20,15 +20,22 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ClientConfig config = new XmlClientConfigBuilder(System.getProperty("hazelcast.xmlconfig")).build();
-        HazelcastInstance instance = HazelcastClient.newHazelcastClient(config);
-        //HazelcastInstance instance = HazelcastClient.newHazelcastClient();
-        Map<Long, Long> cacheMap = instance.getMap("fibmap");
-        
-        for(long i = 1; i <= 10L; i++) {
-            System.out.println("value is " + fibonacci(i, cacheMap));
+        try
+        {
+            ClientConfig config = new XmlClientConfigBuilder(System.getProperty("hazelcast.xmlconfig")).build();
+            HazelcastInstance instance = HazelcastClient.newHazelcastClient(config);
+            //HazelcastInstance instance = HazelcastClient.newHazelcastClient();
+            Map<Long, Long> cacheMap = instance.getMap("fibmap");
+
+            for(long i = 1; i <= 10L; i++) {
+                System.out.println("value is " + fibonacci(i, cacheMap));
+            }
+            instance.shutdown();
         }
-        instance.shutdown();
+        catch(Exception e)
+        {
+            System.out.println("Exception: "+e);
+        }
     }
     
     private static long fibonacci(long rounds, Map<Long, Long> cacheMap) {
