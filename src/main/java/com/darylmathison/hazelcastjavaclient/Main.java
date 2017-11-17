@@ -4,6 +4,8 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
 import java.util.Map;
 
+import java.lang.System;
+
 /**
  *
  * @author Daryl
@@ -14,7 +16,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        HazelcastInstance instance = HazelcastClient.newHazelcastClient();
+        ClientConfig config = new XmlClientConfigBuilder(System.getProperty("hazelcast.xmlconfig")).build();
+        HazelcastInstance client = HazelcastClient.newHazelcastClient(config)
+        //HazelcastInstance instance = HazelcastClient.newHazelcastClient();
         Map<Long, Long> cacheMap = instance.getMap("fibmap");
         
         for(long i = 1; i <= 10L; i++) {
