@@ -22,9 +22,9 @@ public class Main {
     public static void main(String[] args) {
         try
         {
-            ClientConfig config = new XmlClientConfigBuilder(System.getProperty("hazelcast.xmlconfig")).build();
-            HazelcastInstance instance = HazelcastClient.newHazelcastClient(config);
-            //HazelcastInstance instance = HazelcastClient.newHazelcastClient();
+            //ClientConfig config = new XmlClientConfigBuilder(System.getProperty("hazelcast.xmlconfig")).build();
+            //HazelcastInstance instance = HazelcastClient.newHazelcastClient(config);
+            HazelcastInstance instance = HazelcastClient.newHazelcastClient();
             Map<Long, Long> cacheMap = instance.getMap("fibmap");
 
             for(long i = 1; i <= 10L; i++) {
