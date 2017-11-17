@@ -2,6 +2,9 @@ package com.darylmathison.hazelcastjavaclient;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.HazelcastInstance;
+
+import com.hazelcast.client.config.XmlClientConfigBuilder;
+
 import java.util.Map;
 
 import java.lang.*;
